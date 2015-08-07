@@ -1,0 +1,3 @@
+---
+redis_slave_daemonize: "yes"
+redis_slave_of: "{{ hostvars['rmaster'].ansible_eth0.ipv4.address }} {{ redis_bind_port }}"

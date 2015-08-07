@@ -1,0 +1,8 @@
+---
+- name: copy init script
+  copy: src=redis-sentinel dest=/etc/init.d/redis-sentinel mode=0755 owner=root group=root
+  notify: restart redis sentinel
+
+- name: copy sentinel configuration template
+  template: src=sentinel.conf.j2 dest=/etc/redis/sentinel.conf mode=0644 owner=redis group=redis
+  notify: restart redis sentinel

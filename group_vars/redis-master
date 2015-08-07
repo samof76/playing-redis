@@ -1,0 +1,4 @@
+---
+redis_master_daemonize: "yes"
+redis_master_tcp_keepalive: 60
+redis_master_appendonly: "yes"

@@ -1,0 +1,9 @@
+---
+- name: install ntpd
+  apt: name=ntp state=present
+  environment:
+    http_proxy: http://myproxy.in:8080
+    https_proxy: http://myproxy.in:8080
+
+- name: start ntpd service
+  service: name=ntp state=started enabled=yes

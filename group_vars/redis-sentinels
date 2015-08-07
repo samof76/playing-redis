@@ -1,0 +1,9 @@
+---
+redis_master_group_name: master
+redis_master_ip: "{{ hostvars['rmaster'].ansible_eth0.ipv4.address }}"
+redis_master_port: "{{ redis_bind_port }}"
+redis_sentinel_port: 26379
+redis_sentinel_monitor_quorum: 2
+redis_sentinel_down_after_milliseconds: 180000
+redis_sentinel_parallel_syncs: 1
+redis_sentinel_failover_timeout: 180000

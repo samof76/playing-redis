@@ -1,0 +1,7 @@
+---
+- name: download and install redis
+  apt: name=redis-server state=present
+  environment:
+    http_proxy: http://myproxy.in:8080
+    https_proxy: http://myproxy.in:8080
+ 

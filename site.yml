@@ -1,0 +1,29 @@
+---
+- name: apply common configuration to all the servers
+  hosts: all
+  remote_user: root
+  roles:
+  - common
+
+- name: setup redis master
+  hosts: redis-master
+  vars:
+    cluster: yes
+  remote_user: root
+  roles:
+  - base-redis
+  - rmaster
+
+- name: setup redis slave(s)
+  hosts: redis-slaves
+  remote_user: root
+  roles:
+  - base-redis
+  - rslaves
+
+- name: setup redis sentinels
+  hosts: redis-sentinels
+  remote_user: root
+  roles:
+  - base-redis
+  - rsentinels
